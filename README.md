@@ -1,7 +1,8 @@
 # packer-aws-examples
-Packer AWS examples
 
-AMI customization using the latest Amazon linux2 AMI. Change parameter values as needed.
+### AMI customization using the latest Amazon linux2 AMI. 
+**Note:** Change parameter values as needed.
+```
 packer build \
 -var 'aws_region=us-east-1' \
 -var 'aws_vpc_id=<vpc-id>' \
@@ -13,9 +14,11 @@ amz-linux2-latest-ami-httpd.json
 
 Test the httpd server:
 http://<ec2-public-ip>
+```
 
-
-AMI customization using custom Amazon linux2 AMI. Change parameter values as needed.
+### AMI customization using custom Amazon linux2 AMI. 
+**Note**: Change parameter values as needed.
+```
 packer build \
 -var 'aws_region=us-east-1' \
 -var 'aws_source_ami=<ami-id>>' \
@@ -27,8 +30,9 @@ amz-linux2-ami-lamp.json
 
 Test the lamp server:
 http://<ec2-public-ip>/phpinfo.php
+```
 
-Reference:
+### Reference:
 
 https://www.packer.io/docs/builders/amazon/ebs
 
@@ -36,5 +40,5 @@ https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html
 
 https://aws.amazon.com/blogs/mt/creating-packer-images-using-system-manager-automation/
 
-For owners list:
+For querying the latest AMI, refer to below link for owners list:
 https://aws.amazon.com/blogs/devops/how-to-create-an-ami-builder-with-aws-codebuild-and-hashicorp-packer/
