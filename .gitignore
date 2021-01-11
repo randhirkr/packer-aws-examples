@@ -1,3 +1,6 @@
+# pycharm ide files
+.idea/
+
 # Cache objects
 packer_cache/
 
