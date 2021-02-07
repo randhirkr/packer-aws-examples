@@ -65,9 +65,11 @@ https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html
 https://aws.amazon.com/blogs/mt/creating-packer-images-using-system-manager-automation/
 
 
+
 For querying the latest AMI, refer to below link for owners list:
 
 https://aws.amazon.com/blogs/devops/how-to-create-an-ami-builder-with-aws-codebuild-and-hashicorp-packer/
+
 
 
 For volume block device mapping details, refer to below links:
