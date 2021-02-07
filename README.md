@@ -44,6 +44,18 @@ packer build \
 amz-linux2-ami-custom-storage.json
 ```
 
+### AMI customization amazon linxu2 multiple volume
+```
+packer build \
+-var 'aws_region=us-east-1' \
+-var 'aws_source_ami=<ami-id>' \
+-var 'aws_vpc_id=<vpc-id>' \
+-var 'vpc_subnet_id=<subnet-id>' \
+-var 'ec2_instance_type=t2.micro' \
+-var 'ec2_temp_sg_ip_cidr=<ip-cidr>' \
+amz-linux2-ami-multiple-vol.json
+```
+
 ### Reference:
 
 https://www.packer.io/docs/builders/amazon/ebs

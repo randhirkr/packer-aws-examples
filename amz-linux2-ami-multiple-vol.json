@@ -1,0 +1,50 @@
+{
+  "variables": {
+    "aws_region": "",
+    "aws_source_ami": "",
+    "aws_vpc_id": "",
+    "vpc_subnet_id": "",
+    "ec2_instance_type": "",
+    "ec2_temp_sg_ip_cidr": ""
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "{{user `aws_region`}}",
+      "source_ami": "{{user `aws_source_ami`}}",
+      "instance_type": "{{user `ec2_instance_type`}}",
+      "ssh_username": "ec2-user",
+      "ami_name": "ran-packer-ami-{{isotime | clean_resource_name}}",
+      "vpc_id": "{{user `aws_vpc_id`}}",
+      "subnet_id": "{{user `vpc_subnet_id`}}",
+      "launch_block_device_mappings": [
+        {
+          "device_name": "/dev/xvda",
+          "volume_size": "10"
+        },
+                {
+          "device_name": "/dev/sdb",
+          "volume_size": "12"
+        }
+      ],
+      "temporary_security_group_source_cidrs": [
+        "{{user `ec2_temp_sg_ip_cidr`}}"
+      ],
+      "run_tags": {
+        "Name": "ran-packer-server"
+      },
+      "tags": {
+        "Name": "ran-packer-ami"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo yum update -y"
+      ]
+    }
+  ]
+}
+
